@@ -1,0 +1,13 @@
+package com.qubitfaruk.northwinddemo;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class NorthwindDemoApplicationTests {
+
+    @Test
+    void contextLoads() {
+    }
+
+}
