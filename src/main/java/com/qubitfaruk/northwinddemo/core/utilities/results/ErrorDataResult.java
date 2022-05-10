@@ -2,7 +2,7 @@ package com.qubitfaruk.northwinddemo.core.utilities.results;
 
 public class ErrorDataResult<T> extends  DataResult<T>{
     public ErrorDataResult( T data) {
-        super(false, data);
+        super(data, false);
     }
     public ErrorDataResult( String message, T data) {
         super(false, message, data);
@@ -11,7 +11,7 @@ public class ErrorDataResult<T> extends  DataResult<T>{
         super(false, message, null);
     }
     public ErrorDataResult() {
-        super(false,null);
+        super(null,false);
     }
 
 }
