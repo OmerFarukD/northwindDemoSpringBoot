@@ -23,11 +23,20 @@ public class ProductManager implements ProductService {
 
     @Override
     public DataResult<List<Product>> getAllByProductName(String productName) {
-        return new SuccessDataResult<List<Product>>("Ürün listelendi", this.productDal.getAllByProductName(productName));
+       return new SuccessDataResult<List<Product>>(this.productDal.getAllByProductName(productName));
+    }
+    @Override
+    public DataResult<Product> getByProductId(int productId) {
+      return new SuccessDataResult<Product>(this.productDal.getByProductId(productId));
     }
 
     @Override
-    public DataResult<Product> getByProductId(int productId) {
-        return new SuccessDataResult<Product>(this.productDal.getByProductId(productId));
+    public DataResult<List<Product>> getAllByCategoryId(int categoryId) {
+        return new SuccessDataResult<List<Product>>(this.productDal.getByCategory_CategoryId(categoryId));
+    }
+
+    @Override
+    public DataResult<List<Product>> getAllProductWithCategoryDetails() {
+        return null;
     }
 }

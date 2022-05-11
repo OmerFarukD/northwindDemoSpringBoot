@@ -1,10 +1,11 @@
 package com.qubitfaruk.northwinddemo.core.utilities.results;
 
-public class SuccessResult extends Result{
-    public SuccessResult(Result result) {
+public class SuccessResult extends Result {
+    public SuccessResult() {
         super(true);
     }
-    public SuccessResult(String message){
+
+    public SuccessResult(String message) {
         super(true, message);
     }
 }

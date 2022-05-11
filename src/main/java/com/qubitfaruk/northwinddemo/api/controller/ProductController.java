@@ -1,15 +1,10 @@
 package com.qubitfaruk.northwinddemo.api.controller;
-
 import com.qubitfaruk.northwinddemo.business.abstracts.ProductService;
 import com.qubitfaruk.northwinddemo.core.utilities.results.DataResult;
 import com.qubitfaruk.northwinddemo.core.utilities.results.Result;
-import com.qubitfaruk.northwinddemo.core.utilities.results.SuccessDataResult;
-import com.qubitfaruk.northwinddemo.core.utilities.results.SuccessResult;
 import com.qubitfaruk.northwinddemo.entities.concrete.Product;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,10 +13,21 @@ import java.util.List;
 public class ProductController {
     @Autowired
     private ProductService productService;
-    public Result addProduct(Product product){
+
+    @PostMapping("/addToProduct")
+    public Result addProduct(@RequestBody Product product){
         return this.productService.addToProduct(product);
     }
-    public DataResult<List<Product>> getAllByProductName(String productName){
+    @GetMapping("/getAllByProductName")
+    public DataResult<List<Product>> getAllByProductName(@RequestParam String productName){
         return this.productService.getAllByProductName(productName);
+    }
+    @GetMapping("/getByProductId")
+    public DataResult<Product> getByProductId(@RequestParam int productId){
+        return this.productService.getByProductId(productId);
+    }
+    @GetMapping("/getAllByCategoryId")
+    public DataResult<List<Product>> getAllByCategoryId(int categoryId){
+        return this.productService.getAllByCategoryId(categoryId);
     }
 }

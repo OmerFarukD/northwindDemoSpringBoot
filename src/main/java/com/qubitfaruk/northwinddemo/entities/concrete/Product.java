@@ -12,9 +12,9 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Product {
-    @Column(name = "product_id")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "product_id")
     private int productId;
 
     @Column(name = "product_name")
@@ -24,5 +24,9 @@ public class Product {
     private double unitPrice;
 
     @Column(name = "units_in_stock")
-    private int unitsInStock;
+    private short unitsInStock;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 }

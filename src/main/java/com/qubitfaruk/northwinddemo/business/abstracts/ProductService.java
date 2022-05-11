@@ -10,4 +10,6 @@ public interface ProductService {
     Result addToProduct(Product product);
     DataResult<List<Product>> getAllByProductName(String productName);
     DataResult<Product> getByProductId(int productId);
+    DataResult<List<Product>> getAllByCategoryId(int categoryId);
+    DataResult<List<Product>> getAllProductWithCategoryDetails();
 }
